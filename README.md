@@ -10,26 +10,26 @@ A SwiftUI-based iOS application for managing and tracking important events with 
 - Delete events with swipe gestures or delete actions
 - Events automatically sorted chronologically
 
-### 🎨 **Customization**
-- **Custom Colors**: Choose personalized colors for event titles
-- **Image Attachments**: Add photos from your photo library to events
-- **Visual Preview**: See selected images before saving
-
 ### ⏰ **Smart Countdown Display**
 - **Real-time Updates**: Shows relative time like "in 2 days" or "5 minutes ago"
 - **Past & Future Events**: Handles both upcoming and past events
 - **Live Formatting**: Updates automatically as time passes
-
-### 💾 **Data Persistence**
-- **Automatic Saving**: All events persist between app launches
-- **UserDefaults Storage**: Lightweight, reliable data storage
-- **Image Persistence**: Photos are saved with events
 
 ### 📱 **Modern iOS Interface**
 - **NavigationStack**: Native iOS navigation with push/pop animations
 - **Form Validation**: Prevents saving events with empty titles
 - **PhotosPicker Integration**: Modern iOS 16+ photo selection
 - **Responsive Design**: Works on all iOS device sizes
+
+### 🎨 **Customization**
+- **Custom Colors**: Choose personalized colors for event titles
+- **Image Attachments**: Add photos from your photo library to events
+- **Visual Preview**: See selected images before saving
+
+### 💾 **Data Persistence**
+- **Automatic Saving**: All events persist between app launches
+- **UserDefaults Storage**: Lightweight, reliable data storage
+- **Image Persistence**: Photos are saved with events
 
 ## Usage
 
