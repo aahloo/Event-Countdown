@@ -5,6 +5,8 @@ import SwiftUI
 struct EventRow: View {
     
     let event: Event
+    @State private var now = Date.now
+    private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect() /// Updates the relative time in real-time using a private Timer
     
     /// Initializes the EventRow with the given event
     init(event: Event) {
@@ -46,15 +48,17 @@ struct EventRow: View {
                     .font(.headline)
                     .foregroundColor(event.textColor)
                 
-                Text(relativeDateFormatter.localizedString(for: event.date, relativeTo: Date()))
+                Text(relativeDateFormatter.localizedString(for: event.date, relativeTo: now))
                     .font(.subheadline)
                     .foregroundColor(.secondary)
             }
             
             Spacer()
         }
-        
         .padding(.vertical, 2)
+        .onReceive(timer) { updateTime in
+            now = updateTime
+        }
     }
     
 }

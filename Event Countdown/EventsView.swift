@@ -9,8 +9,9 @@ struct EventsView: View {
     var body: some View {
         
         NavigationStack(path: $navigationPath) {
+            
             List {
-                ForEach(events) { event in
+                ForEach(events.sorted()) { event in  /// implement sorted feature one time here since Event conforms to Comparable protocol
                     NavigationLink(value: EventFormMode.edit(event)) {
                         EventRow(event: event)
                     }
@@ -59,7 +60,6 @@ struct EventsView: View {
     private func addEvent(_ event: Event) { /// The event to add
         ///
         events.append(event)
-        events.sort { $0.date < $1.date }
         saveEvents()
         
     }
@@ -70,7 +70,6 @@ struct EventsView: View {
         /// originalEvent: The event to be updated (used to find the correct event by ID)
         if let index = events.firstIndex(where: { $0.id == originalEvent.id }) {
             events[index] = updatedEvent /// updatedEvent: The new event data to replace the original
-            events.sort { $0.date < $1.date }
             saveEvents()
         }
         

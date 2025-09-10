@@ -1,7 +1,14 @@
 import Foundation
 import SwiftUI
 
-struct Event: Identifiable, Codable {
+/// Represents a countdown event with title, date, color, and optional image
+/// Conforms to Identifiable for SwiftUI lists, Codable for data persistence, and Comparable for sorting by date
+struct Event: Identifiable, Codable, Comparable {
+    
+    /// Comparable implementation - sorts events by date (sooner dates first)
+    static func < (lhs: Event, rhs: Event) -> Bool {
+        return lhs.date < rhs.date
+    }
     
     let id: UUID
     var title: String

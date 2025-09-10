@@ -23,6 +23,16 @@ struct EventForm: View {
         !title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
     }
     
+    /// Dynamic navigation title based on mode - "Add Event" or "Edit (event title)"
+    private var navigationTitle: String {
+        switch mode {
+        case .add:
+            return "Add Event"
+        case .edit(let event):
+            return "Edit \(event.title)"
+        }
+    }
+    
     /// Initializes the EventForm with the specified mode and save callback
     init(mode: EventFormMode, onSave: @escaping (Event) -> Void) {
         
@@ -69,7 +79,7 @@ struct EventForm: View {
                 }
             }
         }
-        .navigationTitle(mode == .add ? "Add Event" : "Edit Event")
+        .navigationTitle(navigationTitle)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
